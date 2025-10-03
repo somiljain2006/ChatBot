@@ -1,5 +1,6 @@
-
 package com.model.chatbot.repo;
 
-public class RoomRepository {
+import com.model.chatbot.entity.Room;
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface RoomRepository extends JpaRepository<Room, String> {
 }
