@@ -19,13 +19,18 @@ public class ChatHandler extends TextWebSocketHandler {
   private static final Set<WebSocketSession> sessions = new HashSet<>();
 
   @Override
-  public void afterConnectionEstablished(@NonNull WebSocketSession session) throws IOException {
+  public void afterConnectionEstablished(@NonNull WebSocketSession session) {
     if (sessions.size() >= 2) {
-      session.close();
+      try {
+        session.close();
+      } catch (IOException e) {
+        System.out.println("Failed to close session");
+      }
       return;
     }
     sessions.add(session);
   }
+
 
 
   @Override
