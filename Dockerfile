@@ -5,6 +5,6 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-EXPOSE 9090
+EXPOSE 8080
 COPY --from=build /app/target/app.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
