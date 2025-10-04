@@ -166,7 +166,9 @@
         username = userInput.value.trim();
         if (!username) return alert('Please enter a username!');
 
-        ws = new WebSocket(`ws://localhost:9090/ws/chat?user=${username}`);
+        const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+        const host = location.host;
+        ws = new WebSocket(`${protocol}://${host}/ws/chat?user=${encodeURIComponent(username)}`);
 
         ws.onopen = () => {
             loginContainer.style.display = 'none';
