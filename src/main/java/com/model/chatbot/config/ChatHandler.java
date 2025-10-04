@@ -7,8 +7,6 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,14 +18,6 @@ public class ChatHandler extends TextWebSocketHandler {
 
   @Override
   public void afterConnectionEstablished(@NonNull WebSocketSession session) {
-    if (sessions.size() >= 2) {
-      try {
-        session.close();
-      } catch (IOException e) {
-        System.out.println("Failed to close session");
-      }
-      return;
-    }
     sessions.add(session);
   }
 
