@@ -1,4 +1,4 @@
-package com.model.chatbot.config;
+package com.model.chatbot.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
