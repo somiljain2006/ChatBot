@@ -24,7 +24,7 @@ public class ChatHandler extends TextWebSocketHandler {
   @Override
   protected void handleTextMessage(@NonNull WebSocketSession session, @NonNull TextMessage message) throws Exception {
     for (WebSocketSession webSocketSession : sessions) {
-      if (webSocketSession.isOpen()) {
+      if (webSocketSession.isOpen() && !webSocketSession.getId().equals(session.getId())) {
         webSocketSession.sendMessage(message);
       }
     }

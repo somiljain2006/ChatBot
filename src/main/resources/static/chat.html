@@ -170,7 +170,7 @@
 
         ws.onopen = () => {
             loginContainer.style.display = 'none';
-            chatArea.style.display = 'flex'; // Show the chat area
+            chatArea.style.display = 'flex';
             addMessage('You are now connected!', 'system-message');
             messageInput.disabled = false;
             sendBtn.disabled = false;
@@ -200,7 +200,6 @@
 
         const message = `${username}: ${text}`;
         ws.send(message);
-        addMessage(message, 'from-me');
         messageInput.value = '';
     }
 
